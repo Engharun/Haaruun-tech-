@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Haaruun Tech — Admin</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/admin.css"></head>
+<body class="admin-body">
+<header class="admin-top"><a class="brand" href="/"><span class="brand-mark">H<span>T</span></span><span class="brand-name">HAARUUN<span>TECH</span></span></a><div><span class="admin-badge">ADMIN CONSOLE</span><a class="back-link" href="/">← View website</a></div></header>
+<main class="admin-main">
+<section id="loginView" class="login-card"><div class="section-kicker"><span class="tiny-square"></span> SECURE ACCESS</div><h1>Welcome back.</h1><p>Sign in to manage Haaruun Tech articles and publishing.</p><form id="loginForm"><label>Username<input name="username" autocomplete="username" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button class="btn btn-primary" type="submit">Sign in <b>↗</b></button><div id="loginError" class="error-message"></div></form><small>For security, change the initial credentials in your environment settings before deployment.</small></section>
+<section id="dashboardView" class="dashboard" hidden>
+  <div class="dashboard-heading"><div><div class="section-kicker"><span class="tiny-square"></span> CONTENT MANAGEMENT</div><h1>Article dashboard.</h1><p>Create, edit, publish or remove stories in English and Somali.</p></div><button id="logoutButton" class="btn btn-outline">Sign out ↗</button></div>
+  <div class="dashboard-layout"><aside class="article-list-panel"><div class="panel-title"><h2>Articles</h2><button id="newArticleButton" class="btn btn-primary">+ New</button></div><div id="adminArticleList"></div></aside>
+  <section class="editor-panel"><div class="panel-title"><h2 id="editorTitle">Create an article</h2><span id="editorStatus" class="status-pill">DRAFT EDITOR</span></div>
+  <form id="articleForm">
+    <input type="hidden" name="id">
+    <div class="form-row"><label>Category<select name="category"><option>Technology</option><option>Cybersecurity</option><option>AI</option><option>Tutorials</option><option>Business</option></select></label><label>Publishing<select name="published"><option value="1">Published</option><option value="0">Draft / hidden</option></select></label></div>
+    <label>Article image URL <span class="optional">(optional)</span><input name="image_url" type="url" placeholder="https://example.com/image.jpg"></label>
+    <div class="form-row"><label>Title — English<input name="title_en" maxlength="200" required></label><label>Title — Somali<input name="title_so" maxlength="200" required></label></div>
+    <div class="form-row"><label>Short excerpt — English<textarea name="excerpt_en" rows="3" maxlength="500" required></textarea></label><label>Short excerpt — Somali<textarea name="excerpt_so" rows="3" maxlength="500" required></textarea></label></div>
+    <div class="form-row"><label>Article body — English<textarea name="body_en" rows="9" required></textarea></label><label>Article body — Somali<textarea name="body_so" rows="9" required></textarea></label></div>
+    <div id="formMessage" role="status"></div><div class="editor-actions"><button type="submit" class="btn btn-primary" id="saveButton">Save article <b>↗</b></button><button type="button" class="btn btn-outline" id="clearButton">Clear form</button><button type="button" class="delete-button" id="deleteButton" hidden>Delete article</button></div>
+  </form></section></div>
+</section></main><script src="/admin.js" defer></script></body></html>
