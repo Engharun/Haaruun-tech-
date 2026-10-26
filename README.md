@@ -1,32 +1,26 @@
-# Haaruun Tech — Full-stack website starter
+# Haaruun Tech — full-stack website
 
-A bilingual (English / Somali) technology and cybersecurity publication site with:
-- Responsive public homepage
-- Technology, Cybersecurity, AI, Tutorials and Blog sections
-- Article search and category filtering
-- Express backend API
-- SQLite database
-- Admin login and article CRUD dashboard
-- Password hashing and session-based authentication
-- Basic security headers and input validation
+Bilingual (Somali/English) technology and cybersecurity publication website with an Express backend, PostgreSQL database, persistent admin sessions, and an admin dashboard.
 
-## Requirements
-- Node.js 20+
-- npm
+## Deploying
+
+This version uses PostgreSQL so articles and admin sessions are not stored in the web service's temporary local filesystem.
+
+1. Create a PostgreSQL database (for example, on Neon) and copy its connection string.
+2. In your hosting provider, connect this GitHub repository and set these environment variables:
+   - `DATABASE_URL`: PostgreSQL connection string
+   - `SESSION_SECRET`: long random secret (32+ characters)
+   - `ADMIN_USERNAME`: your chosen admin username
+   - `ADMIN_PASSWORD`: a strong unique password
+   - `NODE_ENV`: `production`
+3. Build command: `npm install`
+4. Start command: `npm start`
+5. After deployment, open `/admin` to sign in.
+
+Do not commit a real `.env` file or publish secrets in GitHub. Keep database credentials private. Confirm your database provider's current free-tier limits and backup policy.
 
 ## Run locally
-1. Copy `.env.example` to `.env` and change `SESSION_SECRET` and `ADMIN_PASSWORD`.
-2. Install packages: `npm install`
-3. Start: `npm start`
-4. Open `http://localhost:3000`
-5. Admin dashboard: `http://localhost:3000/admin`
 
-Default admin username/password are configured in `.env.example`; change them before use.
+Use Node.js 20+, create a `.env` file from `.env.example`, fill in real values, run `npm install`, then `npm start`.
 
-## Important before public deployment
-- Set strong unique secrets and admin credentials.
-- Use HTTPS at your hosting provider.
-- Configure backups for `data/haaruun-tech.db`.
-- Add your real logo, contact details, social links, privacy policy and terms.
-- Configure SMTP or a contact form provider if you need email delivery.
-- This starter is a functional foundation, not a claim that a live domain has already been purchased or deployed.
+This is a starter project; review it, change default/sample content, and test the admin workflow before promoting it as a production publication platform.
